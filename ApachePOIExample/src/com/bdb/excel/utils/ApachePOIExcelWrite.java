@@ -22,18 +22,13 @@ public class ApachePOIExcelWrite {
 				{ "Andres", "Aldana", "Desconocida" } };
 
 		int rowNum = 0;
-		System.out.println("Creating excel");
+		System.out.println("Creating excel...");
 
 		for (Object[] datatype : datatypes) {
 			Row row = sheet.createRow(rowNum++);
 			int colNum = 0;
 			for (Object field : datatype) {
-				Cell cell = row.createCell(colNum++);
-				if (field instanceof String) {
-					cell.setCellValue((String) field);
-				} else if (field instanceof Integer) {
-					cell.setCellValue((Integer) field);
-				}
+				createCell(row, colNum++);
 			}
 		}
 
@@ -46,6 +41,17 @@ public class ApachePOIExcelWrite {
 			e.printStackTrace();
 		}
 
-		System.out.println("Done");
+		System.out.println("Done :)");
+	}
+	
+	public static Cell createCell(Row row,int colNum){
+		Cell cell = row.createCell(colNum);
+		if (field instanceof String)
+			cell.setCellValue((String) field);
+		else if (field instanceof Integer) {
+			cell.setCellValue((Integer) field);
+		}
+		
+		return cell;
 	}
 }
