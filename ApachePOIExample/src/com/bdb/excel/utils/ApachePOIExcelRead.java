@@ -31,6 +31,9 @@ public class ApachePOIExcelRead {
 				Iterator<Cell> cellIterator = currentRow.iterator();
 
 				while (cellIterator.hasNext()) {
+					
+					System.out.print("Procesing the file...");
+					
 
 					Cell currentCell = cellIterator.next();
 			
@@ -42,6 +45,7 @@ public class ApachePOIExcelRead {
 
 				}
 				System.out.println();
+				System.out.print("file Procesed :)");
 
 			}
 		} catch (FileNotFoundException e) {
